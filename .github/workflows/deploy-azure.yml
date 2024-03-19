@@ -1,5 +1,5 @@
 
-name: Java CI with Maven
+name: Java CI with Maven v2
 
 on:
   push:
@@ -46,15 +46,6 @@ jobs:
           java-version: 11
       - name: Build with Maven
         run: mvn -B package --file pom.xml -Dmaven.test.skip=true
-      - name: generate report codecov
-        run: mvn cobertura:cobertura
-      - name: Upload coverage
-        if: success()
-        run: |
-          curl -s https://codecov.io/bash | bash
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        shell: bash
 
   deploy:
     runs-on: ubuntu-latest
