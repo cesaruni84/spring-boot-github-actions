@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class WorkflowService {
     public String message() {
-        return "Hello v2";
+        return "Hello";
     }
 }
